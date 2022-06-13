@@ -10,9 +10,11 @@ const { protect } = require('../controllers/authController');
 
 const router = express.Router();
 
-router.route('/').get(getAllUsers).post(createUser);
+router.route('/').get(getAllUsers);
 
-router.route('/login').post(loginUser);
+router.route('/signup').post(createUser);
+
+router.route('/signin').post(loginUser);
 
 router.route('/:id').patch(protect, updateUser).delete(protect, deleteUser);
 
